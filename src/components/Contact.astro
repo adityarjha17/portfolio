@@ -1,0 +1,70 @@
+---
+const email = 'hi@[your-domain]';
+---
+
+<section id="contact" class="contact">
+  <div class="container inner" data-reveal-group>
+    <span class="mono label">09 · contact</span>
+    <h2>Let's build something that <span class="hl">actually runs.</span></h2>
+    <p>Open to cloud and AI solutions architect roles in India. The fastest way to reach me is email.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href={`mailto:${email}`}>{email}</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/adityarjha" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© 2026 Aditya Jha</span>
+  </div>
+</footer>
+
+<style>
+  .contact {
+    padding: 88px 0;
+    border-top: 1px solid var(--border);
+  }
+  .inner {
+    max-width: 760px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .label {
+    font-size: 13px;
+    color: var(--accent-text);
+  }
+  h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .hl {
+    color: var(--accent-text);
+  }
+  p {
+    margin: 0;
+    font-size: 18px;
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>

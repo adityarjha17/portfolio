@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Stats from '../components/Stats.astro';
+import Skills from '../components/Skills.astro';
+import Work from '../components/Work.astro';
+import Highlights from '../components/Highlights.astro';
+import Contact from '../components/Contact.astro';
+import Interactions from '../components/Interactions.astro';
+---
+
+<Base
+  title="Aditya Jha | Cloud & AI Solutions Architect, Bengaluru"
+  description="Aditya Jha, Bengaluru-based cloud and AI solutions architect. AWS certified, with experience in Kubernetes on AWS, LLM inference sizing and GPU clusters."
+>
+  <Nav />
+  <main id="main">
+    <Hero />
+    <About />
+    <Experience />
+    <Education />
+    <Stats />
+    <Skills />
+    <Work />
+    <Highlights />
+    <Contact />
+  </main>
+  <Interactions />
+</Base>

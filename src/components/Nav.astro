@@ -1,0 +1,209 @@
+---
+const links = [
+  { href: '#about', label: 'about', text: 'About' },
+  { href: '#experience', label: 'experience', text: 'Experience' },
+  { href: '#work', label: 'work', text: 'Work' },
+  { href: '#contact', label: 'contact', text: 'Contact' },
+];
+---
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand mono" aria-label="Aditya Jha, back to top"><span>~/</span>aditya</a>
+
+    <nav class="links mono" aria-label="Main">
+      {links.map((l) => <a href={l.href}>{l.text}</a>)}
+    </nav>
+
+    <div class="actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+      <a href="Aditya_Jha_Resume.pdf" class="resume-btn" download="Aditya_Jha_Resume.pdf">Resume</a>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    {links.map((l) => <a href={l.href}>{l.text}</a>)}
+  </nav>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, background-color 0.25s ease;
+  }
+  .nav.scrolled {
+    border-bottom-color: var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 68px;
+  }
+  .brand {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--heading);
+    text-decoration: none;
+  }
+  .brand span {
+    color: var(--accent);
+  }
+  .links {
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+  }
+  .links a,
+  .mobile-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .links a:hover,
+  .links a.active,
+  .mobile-menu a:hover {
+    color: var(--accent);
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--heading);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .icon-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  :global([data-theme='dark']) .icon-moon,
+  :global([data-theme='light']) .icon-sun {
+    display: none;
+  }
+  .resume-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .resume-btn:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--on-accent);
+  }
+  .menu-btn,
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 760px) {
+    .links {
+      display: none;
+    }
+    .menu-btn {
+      display: inline-flex;
+    }
+    .resume-btn {
+      display: none;
+    }
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 24px;
+      transition: max-height 0.25s ease, padding 0.25s ease;
+    }
+    .mobile-menu a {
+      padding: 12px 0;
+      font-size: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .nav.open {
+      background: var(--bg);
+      border-bottom-color: var(--border);
+    }
+    .nav.open .mobile-menu {
+      max-height: 320px;
+      padding: 0 24px 12px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var nav = document.getElementById('nav');
+    var themeBtn = document.getElementById('theme-toggle');
+    var menuBtn = document.getElementById('menu-toggle');
+    var root = document.documentElement;
+
+    function syncThemeLabel() {
+      var dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', dark ? '#0c1410' : '#f4f7f2');
+    }
+    syncThemeLabel();
+
+    themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      syncThemeLabel();
+    });
+
+    menuBtn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    function onScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>

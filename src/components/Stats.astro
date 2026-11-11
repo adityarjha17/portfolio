@@ -1,0 +1,58 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { stats } from '../data/site';
+---
+
+<section id="impact" class="section">
+  <div class="container section-inner">
+    <div data-reveal><SectionHeading index="04" title="Impact in numbers" /></div>
+    <div class="stats" data-reveal-group>
+      {
+        stats.map((s) => (
+          <div class="card stat">
+            <div class="value" data-count={s.count} data-prefix={s.prefix} data-suffix={s.suffix}>{s.prefix}{s.count}{s.suffix}</div>
+            <p>{s.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .stat {
+    padding: 22px;
+  }
+  .value {
+    font-size: clamp(26px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--heading);
+  }
+  .stat p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  @media (max-width: 900px) {
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 420px) {
+    .stats {
+      gap: 12px;
+    }
+    .stat {
+      padding: 18px 14px;
+    }
+    .stat p {
+      font-size: 14px;
+    }
+  }
+</style>

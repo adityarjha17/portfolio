@@ -1,0 +1,49 @@
+---
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="about" class="about">
+  <div class="container about-inner">
+    <div class="side" data-reveal>
+      <SectionHeading index="01" title="About" />
+    </div>
+    <div class="body" data-reveal-group>
+      <p>
+        I sit where engineering meets the customer. I started with LLM fine-tuning at AMD, then ran production EKS
+        clusters on AWS with Terraform, Helm and ArgoCD. Today I architect AI solutions end to end: I turn a client's
+        requirements into a sized, costed design, write the proposal, and see it through delivery.
+      </p>
+      <p>
+        I've worked with universities and enterprises and supported defence and government tenders, on everything from
+        coding-agent platforms to multi-node GPU clusters. I care about designs that are right-sized, explainable and
+        ready to build.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 56px 0 64px;
+    border-top: 1px solid var(--border);
+  }
+  .about-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 64px;
+  }
+  .side {
+    flex: 0 0 220px;
+  }
+  .body {
+    flex: 1 1 480px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: clamp(16px, 2vw, 18px);
+  }
+  .body p {
+    margin: 0;
+  }
+</style>

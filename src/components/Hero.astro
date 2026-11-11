@@ -1,0 +1,210 @@
+---
+const socials = [
+  { href: 'https://linkedin.com/in/adityarjha', label: 'LinkedIn' },
+  { href: 'https://github.com/adityarjha17', label: 'GitHub' },
+  { href: 'https://medium.com/@jha.aditya17', label: 'Medium' },
+];
+---
+
+<section id="top" class="hero">
+  <div class="container hero-inner">
+    <div class="copy" data-reveal-group>
+      <div class="intro">
+        <picture>
+          <source srcset="aditya.webp" type="image/webp" />
+          <img src="aditya.jpg" alt="Portrait of Aditya Jha" width="800" height="800" fetchpriority="high" />
+        </picture>
+        <span class="status"><span class="dot" aria-hidden="true"></span>Open to cloud &amp; AI solutions architect roles · Bengaluru</span>
+      </div>
+
+      <h1>I design cloud and AI platforms that <span class="hl">actually run.</span></h1>
+      <p class="lead">
+        <strong>Aditya Jha</strong> · Cloud and AI solutions architect. From production Kubernetes on AWS to LLM
+        inference sizing and GPU clusters. Pre-sales and program management experience, AWS Cloud and AI Practitioner
+        certified.
+      </p>
+
+      <div class="ctas">
+        <a href="#work" class="btn btn-primary">View my work</a>
+        <a href="Aditya_Jha_Resume.pdf" class="btn btn-ghost" download="Aditya_Jha_Resume.pdf">Download resume</a>
+      </div>
+      <div class="socials">
+        {socials.map((s) => <a href={s.href} target="_blank" rel="noopener">{s.label} ↗</a>)}
+      </div>
+    </div>
+
+    <div class="terminal mono" data-reveal aria-label="Summary in terminal style">
+      <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="term-body">
+        <span><span class="p">$</span> whoami</span>
+        <span class="out">solutions-architect --cloud --ai</span>
+        <span class="gap"><span class="p">$</span> kubectl get experience</span>
+        <span class="row"><span>MiPhi Semiconductors</span><span>2026 → present</span></span>
+        <span class="row"><span>Osfin.ai</span><span>2025 → 2026</span></span>
+        <span class="row"><span>AMD India</span><span>2024 → 2025</span></span>
+        <span class="gap"><span class="p">$</span> cat stack.txt</span>
+        <span class="out">aws · k8s · terraform · vllm · gpus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 136px 0 64px;
+  }
+  .hero-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px 56px;
+  }
+  .copy {
+    flex: 1 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .intro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .intro img {
+    width: 136px;
+    height: 136px;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .intro {
+    gap: 18px 22px;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text);
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 0 var(--ok);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 60%, transparent); }
+    70%, 100% { box-shadow: 0 0 0 8px transparent; }
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(40px, 6.2vw, 72px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+  .hl {
+    color: var(--accent-text);
+  }
+  .lead {
+    margin: 0;
+    font-size: clamp(17px, 2vw, 19px);
+    max-width: 620px;
+  }
+  .lead strong {
+    color: var(--heading);
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .socials a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .socials a:hover {
+    color: var(--accent-text);
+  }
+
+  .terminal {
+    flex: 0 1 420px;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  .term-bar {
+    display: flex;
+    gap: 7px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .term-bar span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+  .term-body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text);
+  }
+  .p {
+    color: var(--accent-text);
+  }
+  .out {
+    color: var(--heading);
+  }
+  .gap {
+    margin-top: 8px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      padding: 100px 0 48px;
+    }
+    .intro img {
+      width: 108px;
+      height: 108px;
+    }
+    .status {
+      font-size: 13px;
+    }
+    .ctas .btn {
+      flex: 1 1 auto;
+    }
+    .terminal {
+      flex-basis: 100%;
+      font-size: 13px;
+    }
+  }
+</style>

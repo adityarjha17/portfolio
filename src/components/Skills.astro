@@ -1,0 +1,123 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import Logo from './Logo.astro';
+import { skills, certifications } from '../data/site';
+---
+
+<section id="skills" class="section">
+  <div class="container section-inner">
+    <div data-reveal><SectionHeading index="05" title="Skills" /></div>
+    <div class="grid" data-reveal-group>
+      {
+        skills.map((g) => (
+          <div class="card">
+            <h3>{g.group}</h3>
+            <ul class="chips">
+              {g.items.map((i) => (
+                <li class="chip">{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="section">
+  <div class="container section-inner">
+    <div data-reveal><SectionHeading index="06" title="Certifications" /></div>
+    <ul class="certs" data-reveal-group>
+      {
+        certifications.map((c) => {
+          const Tag = c.url ? 'a' : 'div';
+          return (
+            <li>
+              <Tag
+                class:list={['card', 'cert', { linked: !!c.url }]}
+                {...(c.url ? { href: c.url, target: '_blank', rel: 'noopener' } : {})}
+              >
+                <Logo name={c.issuer} src={c.logo} size={44} />
+                <div class="cert-body">
+                  <h3>{c.name}</h3>
+                  <p>
+                    {c.issuer} · <span class="date">{c.date}</span>
+                  </p>
+                </div>
+                <span class="verify mono">{c.url ? 'verify ↗' : 'link soon'}</span>
+              </Tag>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .chips {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .certs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .cert {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .cert.linked:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .cert-body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .cert-body h3 {
+    font-size: 16px;
+  }
+  .cert-body p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .verify {
+    flex: 0 0 auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .linked .verify {
+    color: var(--accent-text);
+  }
+  @media (max-width: 760px) {
+    .grid,
+    .certs {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import Logo from './Logo.astro';
+import { events } from '../data/site';
+---
+
+<section id="highlights" class="section">
+  <div class="container section-inner">
+    <div data-reveal><SectionHeading index="08" title="Highlights" subtitle="Represented at" /></div>
+    <ul class="events" data-reveal-group>
+      {
+        events.map((e) => (
+          <li class="card event">
+            <Logo name={e.name} src={e.logo} size={80} wide dark={e.dark} />
+            <span>{e.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .event {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  @media (max-width: 760px) {
+    .events {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,198 @@
+/* Design tokens. Dark is the default look; light mirrors it. */
+/* Forest Terminal theme. Dark is the default; light mirrors it. */
+:root,
+[data-theme='dark'] {
+  --bg: #0c1410;
+  --surface: #111c16;
+  --surface-2: #142019;
+  --border: #1f2e25;
+  --border-strong: #2e4437;
+  --text: #b5c7ba;
+  --heading: #f2f8f3;
+  --muted: #8fa597;
+  --accent: #b8f35a;
+  --accent-hover: #d4fa94;
+  --accent-text: #b8f35a;
+  --on-accent: #0c1410;
+  --nav-bg: rgba(12, 20, 16, 0.85);
+  --ok: #b8f35a;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg: #f4f7f2;
+  --surface: #ffffff;
+  --surface-2: #eef3ec;
+  --border: #dde5dc;
+  --border-strong: #c3d0c4;
+  --text: #33463a;
+  --heading: #0f1d15;
+  --muted: #4e6357;
+  --accent: #3b6e0f;
+  --accent-hover: #2c5409;
+  --accent-text: #3b6e0f;
+  --on-accent: #ffffff;
+  --nav-bg: rgba(244, 247, 242, 0.88);
+  --ok: #4d8a17;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Manrope', sans-serif;
+  color: var(--heading);
+  line-height: 1.1;
+  margin: 0;
+}
+
+a {
+  color: var(--accent-text);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: var(--on-accent);
+}
+.btn-ghost {
+  border-color: var(--border-strong);
+  color: var(--heading);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  left: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Shared section + card patterns */
+.section {
+  padding: 56px 0 64px;
+  border-top: 1px solid var(--border);
+}
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.card {
+  padding: 24px 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.25s ease;
+}
+.card:hover {
+  border-color: var(--border-strong);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--text);
+}
+.date {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .card {
+    padding: 20px 18px;
+  }
+}

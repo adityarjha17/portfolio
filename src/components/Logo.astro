@@ -1,0 +1,83 @@
+---
+// Shows a company/event logo. Monochrome SVGs are tinted to the theme with a mask;
+// full-colour PNG/SVG files render as-is. With no file yet, shows initials as a placeholder.
+interface Props {
+  name: string;
+  src?: string;
+  mono?: boolean;
+  size?: number;
+  wide?: boolean;
+  dark?: boolean;
+}
+const { name, src, mono = false, size = 48, wide = false, dark = false } = Astro.props;
+const initials = name
+  .replace(/[^A-Za-z0-9 ]/g, ' ')
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0].toUpperCase())
+  .join('');
+---
+
+<span class:list={["logo", { wide, dark }]} style={`--s:${size}px`} title={name}>
+  {
+    src && mono ? (
+      <span class="mask" role="img" aria-label={`${name} logo`} style={`-webkit-mask-image:url(${src});mask-image:url(${src})`} />
+    ) : src ? (
+      <img src={src} alt={`${name} logo`} loading="lazy" />
+    ) : (
+      <span class="initials mono" aria-label={name}>{initials}</span>
+    )
+  }
+</span>
+
+<style>
+  .logo {
+    flex: 0 0 auto;
+    width: var(--s);
+    height: var(--s);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .logo.wide {
+    width: calc(var(--s) * 2.4);
+  }
+  .logo.wide img {
+    width: 86%;
+    height: 76%;
+  }
+  .logo:has(img) {
+    background: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 0 1px var(--border);
+  }
+  .logo.dark:has(img) {
+    background: #0c1410;
+  }
+  .mask {
+    width: 62%;
+    height: 62%;
+    background: var(--heading);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+  img {
+    width: 84%;
+    height: 84%;
+    object-fit: contain;
+  }
+  .initials {
+    font-size: calc(var(--s) * 0.32);
+    font-weight: 500;
+    color: var(--accent-text);
+  }
+</style>
