@@ -14,14 +14,18 @@ const socials = [
           <source srcset="aditya.webp" type="image/webp" />
           <img src="aditya.jpg" alt="Portrait of Aditya Jha" width="800" height="800" fetchpriority="high" />
         </picture>
-        <span class="status"><span class="dot" aria-hidden="true"></span>Open to cloud &amp; AI solutions architect roles · Bengaluru</span>
+        <ul class="chips">
+          <li class="status"><span class="dot" aria-hidden="true"></span>Solutions Architect at MiPhi Semiconductors (Micromax × Phison JV) · Bengaluru</li>
+          <li class="status"><span class="dot" aria-hidden="true"></span>Architecting on-prem and cloud AI platforms</li>
+          <li class="status"><span class="dot" aria-hidden="true"></span>AWS Certified</li>
+        </ul>
       </div>
 
-      <h1>I design cloud and AI platforms that <span class="hl">actually run.</span></h1>
+      <h1>I turn AI and cloud ambitions into architecture that <span class="hl">actually runs.</span></h1>
+      <p class="lead name-line"><strong>Aditya Jha</strong> · Cloud and AI Solutions Architect</p>
       <p class="lead">
-        <strong>Aditya Jha</strong> · Cloud and AI solutions architect. From production Kubernetes on AWS to LLM
-        inference sizing and GPU clusters. Pre-sales and program management experience, AWS Cloud and AI Practitioner
-        certified.
+        Started as a platform engineer, now designing AI solutions end to end: requirements, architecture, sizing and
+        delivery, with pre-sales and program management along the way.
       </p>
 
       <div class="ctas">
@@ -37,13 +41,16 @@ const socials = [
       <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="term-body">
         <span><span class="p">$</span> whoami</span>
-        <span class="out">solutions-architect --cloud --ai</span>
+        <span class="out">Aditya Jha</span>
+        <span class="out">solutions-architect --ai --cloud</span>
         <span class="gap"><span class="p">$</span> kubectl get experience</span>
         <span class="row"><span>MiPhi Semiconductors</span><span>2026 → present</span></span>
         <span class="row"><span>Osfin.ai</span><span>2025 → 2026</span></span>
         <span class="row"><span>AMD India</span><span>2024 → 2025</span></span>
         <span class="gap"><span class="p">$</span> cat stack.txt</span>
-        <span class="out">aws · k8s · terraform · vllm · gpus</span>
+        <span class="out">aws · k8s · terraform · ci/cd</span>
+        <span class="out">vllm · gpus · right-sizing</span>
+        <span class="out">ai-infrastructure · pre-sales</span>
       </div>
     </div>
   </div>
@@ -84,6 +91,25 @@ const socials = [
   .intro {
     gap: 18px 22px;
   }
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 1 300px;
+    min-width: 0;
+  }
+  .name-line {
+    font-size: clamp(18px, 2.2vw, 21px);
+    color: var(--heading);
+    margin-bottom: -8px;
+  }
+  .dot {
+    flex: 0 0 auto;
+  }
   .status {
     display: inline-flex;
     align-items: center;
@@ -109,7 +135,7 @@ const socials = [
   }
   h1 {
     font-weight: 800;
-    font-size: clamp(40px, 6.2vw, 72px);
+    font-size: clamp(36px, 5.2vw, 62px);
     line-height: 1.04;
     letter-spacing: -0.03em;
   }
