@@ -93,10 +93,10 @@ export const skills = [
 export const certifications = [
   { name: 'AWS Certified AI Practitioner', issuer: 'Amazon Web Services', date: 'Oct 2025', url: 'https://www.credly.com/badges/be953941-2c3f-4951-a19d-eb088fc9f0bb', logo: 'logos/aws.svg' as string | undefined },
   { name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: 'Sep 2025', url: 'https://www.credly.com/badges/8a358dda-1e42-4975-933d-147845d4ab4c', logo: 'logos/aws.svg' as string | undefined },
-  { name: 'McKinsey.org Forward Program', issuer: 'McKinsey.org', date: 'Jul 2025', url: 'https://www.credly.com/badges/130caad1-929e-4fba-8c38-5a4ad2650aad', logo: 'logos/mckinsey.svg' as string | undefined },
+  { name: 'Academy Accreditation: AWS Databricks Platform Architect', issuer: 'Databricks', date: 'Feb 2025', url: 'https://credentials.databricks.com/41c49931-cf82-4447-b3d2-8bec8a6f08be', logo: 'logos/databricks.svg' as string | undefined },
+  { name: 'Docker Foundations Professional Certificate', issuer: 'Docker · LinkedIn Learning', date: 'May 2025', url: 'https://www.linkedin.com/learning/certificates/3ffa9a9a781afb28fd5286f483a6762d193284cb411073ee8b07774ae3f47d55', logo: 'logos/docker.svg' as string | undefined },
   { name: 'Career Essentials in GitHub Professional Certificate', issuer: 'GitHub · LinkedIn Learning', date: 'May 2025', url: 'https://www.linkedin.com/learning/certificates/1d799bbafb1dda40fb4394cbec4b6be12e7347e1a47207de44c7a94a9f532cc0', logo: 'logos/github.svg' as string | undefined },
-  { name: 'Real World AI Applications with Gemini and Imagen', issuer: 'Google Cloud', date: 'Apr 2025', url: '', logo: 'logos/googlecloud.svg' as string | undefined },
-  { name: 'Prompt Design in Vertex AI', issuer: 'Google Cloud', date: 'Apr 2025', url: '', logo: 'logos/googlecloud.svg' as string | undefined },
+  { name: 'McKinsey.org Forward Program', issuer: 'McKinsey.org', date: 'Jul 2025', url: 'https://www.credly.com/badges/130caad1-929e-4fba-8c38-5a4ad2650aad', logo: 'logos/mckinsey.svg' as string | undefined },
 ];
 
 export const events = [
