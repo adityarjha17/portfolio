@@ -21,7 +21,10 @@ const { title, description } = Astro.props;
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="og.jpg" />
+    <meta property="og:image" content="https://adityarjha.com/og.jpg" />
+    <meta property="og:url" content="https://adityarjha.com/" />
+    <meta name="twitter:image" content="https://adityarjha.com/og.jpg" />
+    <link rel="canonical" href="https://adityarjha.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -29,6 +32,8 @@ const { title, description } = Astro.props;
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Aditya Jha',
+      url: 'https://adityarjha.com',
+      image: 'https://adityarjha.com/aditya.jpg',
       jobTitle: 'Solutions Architect, Cloud and AI Infrastructure',
       address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressCountry: 'IN' },
       alumniOf: 'Kalinga Institute of Industrial Technology',
