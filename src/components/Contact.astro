@@ -17,8 +17,55 @@ const email = 'hi@adityarjha.com';
 <footer class="footer">
   <div class="container foot">
     <span>© 2026 Aditya Jha</span>
+    <span class="brew-wrap">
+      <button type="button" class="brew" id="brew" title="psst">Brewed</button> in Bengaluru by
+      <a class="by" href="https://www.linkedin.com/in/adityarjha/" target="_blank" rel="noopener">Aditya</a>
+    </span>
   </div>
 </footer>
+
+<div class="brew-sky" id="brew-sky" hidden>
+  <div class="brew-pop" id="brew-pop" hidden>
+    <div class="cup">☕</div>
+    <h3>Brewed in Bengaluru</h3>
+    <p>Reach out to me on LinkedIn or email me.</p>
+    <div class="brew-ctas">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/adityarjha/" target="_blank" rel="noopener">Message me on LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="mailto:hi@adityarjha.com">hi@adityarjha.com</a>
+    </div>
+    <button type="button" id="brew-x" aria-label="Close">×</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var sky = $('brew-sky'), pop = $('brew-pop'), btn = $('brew');
+    if (!sky || !btn) return;
+    var timer;
+    function open() {
+      sky.hidden = false;
+      sky.querySelectorAll('.bubble').forEach(function (x) { x.remove(); });
+      for (var i = 0; i < 46; i++) {
+        var b = document.createElement('span');
+        b.className = 'bubble';
+        var cup = i % 4 === 0;
+        b.textContent = cup ? '☕' : '';
+        if (!cup) b.classList.add('ring');
+        var size = cup ? 26 + Math.random() * 34 : 10 + Math.random() * 26;
+        b.style.cssText = 'left:' + Math.random() * 100 + 'vw;font-size:' + size + 'px;width:' + (cup ? 'auto' : size + 'px') + ';height:' + (cup ? 'auto' : size + 'px') + ';animation-duration:' + (2.6 + Math.random() * 2.4) + 's;animation-delay:' + Math.random() * 1.4 + 's;--dx:' + (Math.random() * 120 - 60).toFixed(0) + 'px';
+        sky.appendChild(b);
+      }
+      clearTimeout(timer);
+      timer = setTimeout(function () { pop.hidden = false; }, 1100);
+    }
+    function close() { clearTimeout(timer); sky.hidden = true; pop.hidden = true; }
+    btn.onclick = open;
+    sky.addEventListener('click', function (e) { if (e.target === sky) close(); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    $('brew-x').onclick = close;
+  })();
+</script>
 
 <style>
   .contact {
@@ -66,5 +113,26 @@ const email = 'hi@adityarjha.com';
     gap: 12px;
     font-size: 13px;
     color: var(--muted);
+  }
+  .foot .brew-wrap {
+    position: relative;
+  }
+  .brew {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  .brew:hover {
+    color: var(--accent-text);
+  }
+  .foot .by {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+  .foot .by:hover {
+    text-decoration: underline;
   }
 </style>

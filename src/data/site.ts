@@ -3,20 +3,22 @@
 
 export const roles = [
   {
-    role: 'Solutions Architect (Pre-Sales) & Program Manager',
+    role: 'Solutions Architect (Pre-Sales)',
     company: 'MiPhi Semiconductors',
-    note: 'Phison × Micromax JV',
+    note: 'Micromax x Phison JV',
     dates: 'Feb 2026 → Present',
     logo: 'logos/miphi-mark.png' as string | undefined,
     points: [
-      'Closed a ₹2 Cr+ Kubernetes GPU cluster order with an education customer, via a channel partner, within 7 months of joining. Delivered the BoQ, power and cooling sizing, and licensing, SLA and security responses.',
-      'Lead solutions architect for the team\'s AI deals across 10+ enterprise, education and public-sector engagements, including an 18,000-user on-prem coding-agent proposal to replace a cloud LLM API bill.',
-      'Appointed project manager of a 5-person agentic AI product team, running scrums, Jira tracking and weekly management updates.',
-      'Program manager for a multi-party server program with a government R&D body and two industry partners.',
-      'Audited a GPU fleet capacity model, fixed 4 modelling errors and rebuilt it across 40 model and precision combinations.',
-      'Led a 12-deliverable go-to-market package for an on-prem agentic AI appliance, from sales deck to TCO model and user manual.',
+      'Solutions architect for all AI deals, working with multiple channel and SI partners: own technical discovery, system and cluster design, BoQ, client clarifications and end-to-end deployment across 30+ enterprise, education and government proposals.',
+      'Designed and deployed ~INR 2 Cr of GPU clusters in the first 9 months: highly available on-prem Kubernetes clusters capable of running models up to 70B parameters, covering power, cooling, SLA, security and acceptance testing.',
+      'Modelled cloud vs on-prem TCO, showing clients where on-prem breaks even against cloud; proposed on-prem solutions as an alternative to USD 15-20K a month of LLM API spend for a coding-agent rollout serving thousands of users.',
+      "Sized GPU platforms for LLM inference and fine-tuning: audited the company's capacity model, fixed multiple errors and rebuilt it across dozens of configurations; produced and presented client-facing concurrency analysis across model classes.",
+      'Presented solution decks with commercial options to an automotive OEM; built vendor-neutral BoMs for defence and government organisations across AI data centre RFQs and government AI tenders.',
+      'Led a 12-deliverable go-to-market package for an in-house agentic AI application and acted as authority on its commercials: licensing, margins, discount ceilings and TCO against competitors.',
+      'Project manager of a 7-member AI product team, running daily scrums, assigning and tracking Jira tickets, and acting as the communication line between the team and upper management.',
+      'Program-managed an AI/HPC server program end to end, coordinating a government R&D lab and a global EMS partner from initial scoping through to final quotation.',
     ],
-    tags: ['AI solution architecture', 'LLM inference sizing', 'GPU clusters', 'TCO modelling', 'Program management'],
+    tags: ['AI solution architecture', 'GPU cluster design', 'LLM inference sizing', 'TCO modelling', 'Pre-sales', 'Program management'],
   },
   {
     role: 'DevOps & Platform Engineer',
@@ -24,20 +26,21 @@ export const roles = [
     dates: 'Jun 2025 → Jan 2026',
     logo: 'logos/osfin.svg' as string | undefined,
     points: [
-      'Built and secured production Amazon EKS clusters with modular Terraform (IRSA, managed node groups, workload isolation), cutting cluster provisioning time by 40%.',
-      'Fixed CI/CD and Helm pipeline failures across environments, cutting build failures by 30%.',
-      'Automated multi-cloud operations on AWS, OCI and Azure with Jenkins, n8n and Python, cutting compute cost by 60% and saving 6+ engineer-hours a week.',
+      'Set up and owned Jenkins CI/CD on 8 dedicated Kubernetes nodes, then migrated it from Azure to AWS with zero downtime and no data loss; cut build failures by ~30%.',
+      'Co-managed production, UAT and development infrastructure on 2 Amazon EKS clusters (~16 worker nodes each); modular Terraform IaC (IRSA, managed node groups, workload isolation) cut provisioning time by ~40%.',
+      'Cut CI compute cost by ~60% with containerised agents; built AWS cost dashboards from CUR data and firewall visibility across AWS and OCI.',
+      'Automated multi-cloud operations with Jenkins, n8n and Python, and packaged deployments with Helm and ArgoCD, saving 6+ engineer-hours a week.',
     ],
-    tags: ['Amazon EKS', 'Terraform', 'Helm', 'ArgoCD', 'Jenkins', 'FinOps'],
+    tags: ['Amazon EKS', 'Terraform', 'Jenkins', 'Helm', 'ArgoCD', 'FinOps'],
   },
   {
-    role: 'Co-op Intern, GenAI',
+    role: 'Co-Op Intern, Generative AI',
     company: 'AMD India',
     dates: 'Jul 2024 → Jun 2025',
-    logo: 'logos/amd.svg',
+    logo: 'logos/amd.svg' as string | undefined,
     points: [
-      'Fine-tuned Indic-language LLMs with INT8, INT4 and GPTQ quantisation for about 20% better inference efficiency on low-resource GPUs.',
-      'Configured and deployed an end-to-end fine-tuning suite with automated inference, evaluation and benchmarking, orchestrated on Kubernetes.',
+      'Co-built a one-click LLM fine-tuning platform (model and dataset selection, live GPU and loss dashboards, automated evaluation) that AMD adopted into its internal tooling; orchestrated training pipelines on Kubernetes.',
+      'Fine-tuned Llama 2 class models for Hindi, Odia and Tamil; quantisation improved inference efficiency by ~20% on low-resource GPUs.',
     ],
     tags: ['LLM fine-tuning', 'Quantisation', 'Kubernetes', 'MLOps'],
   },
@@ -51,45 +54,37 @@ export const roles = [
     ],
     tags: ['AWS', 'Serverless', 'Monitoring'],
   },
-];
-
-export const education = [
+];export const education = [
   {
     degree: 'B.Tech, Computer Science and Engineering',
-    school: 'Kalinga Institute of Industrial Technology (KIIT)',
+    school: 'KIIT University',
     detail: 'CGPA 9.31 / 10 · Bhubaneswar, Odisha',
     dates: '2021 → 2025',
     logo: 'logos/kiit.png' as string | undefined,
   },
-];
-
-export const stats = [
-  { count: 2, prefix: '₹', suffix: ' Cr+', label: 'GPU cluster order closed for an education customer' },
-  { count: 10, prefix: '', suffix: '+', label: 'AI solution engagements across enterprise, education and public sector' },
-  { count: 60, prefix: '', suffix: '%', label: 'lower compute cost from containerised automation agents' },
+];export const stats = [
+  { count: 30, prefix: '', suffix: '+', label: 'enterprise, education and government proposals' },
+  { count: 2, prefix: '~INR ', suffix: ' Cr', label: 'of GPU clusters designed and deployed in my first 9 months' },
+  { count: 60, prefix: '', suffix: '%', label: 'lower CI compute cost with containerised agents' },
   { count: 40, prefix: '', suffix: '%', label: 'less time to provision EKS clusters with Terraform' },
-];
-
-export const skills = [
+];export const skills = [
+  {
+    group: 'AI & GPU Infrastructure',
+    items: ['Cluster design and sizing', 'LLM inference and fine-tuning', 'vLLM', 'Quantisation', 'KV-cache offloading', 'RAG', 'Agentic AI'],
+  },
   {
     group: 'Cloud & Platform',
-    items: ['AWS (EKS, VPC, IAM, Lambda)', 'Kubernetes', 'Terraform', 'Helm', 'ArgoCD', 'Jenkins', 'Docker', 'Prometheus', 'Grafana', 'Azure', 'OCI'],
+    items: ['AWS', 'Azure', 'OCI', 'Kubernetes', 'Helm', 'Terraform', 'Jenkins', 'Docker', 'ArgoCD', 'Python', 'Shell'],
   },
   {
-    group: 'AI & LLM Infrastructure',
-    items: ['LLM inference sizing', 'Fine-tuning', 'vLLM', 'KV-cache offloading', 'Quantisation', 'RAG', 'Agentic AI', 'NVIDIA B200 / RTX PRO 6000'],
+    group: 'Pre-Sales & Delivery',
+    items: ['Technical discovery', 'Solution design', 'TCO and pricing', 'BoM / BoQ', 'RFQ and government tenders'],
   },
   {
-    group: 'Solution Architecture',
-    items: ['Requirements to architecture', 'BoM / BoQ', 'TCO modelling', 'Concurrency modelling', 'RFQ & tender responses', 'Proposals'],
+    group: 'Team & Programs',
+    items: ['Team management', 'Partner management', 'Program management', 'Jira', 'Scrum'],
   },
-  {
-    group: 'Delivery',
-    items: ['Program management', 'Scrum', 'Jira', 'Multi-party coordination', 'Status reporting'],
-  },
-];
-
-// `url` = link to the verifiable certificate (Credly, Google Skills Boost, etc.). Empty until provided.
+];// `url` = link to the verifiable certificate (Credly, Google Skills Boost, etc.). Empty until provided.
 export const certifications = [
   { name: 'AWS Certified AI Practitioner', issuer: 'Amazon Web Services', date: 'Oct 2025', url: 'https://www.credly.com/badges/be953941-2c3f-4951-a19d-eb088fc9f0bb', logo: 'logos/aws.svg' as string | undefined },
   { name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: 'Sep 2025', url: 'https://www.credly.com/badges/8a358dda-1e42-4975-933d-147845d4ab4c', logo: 'logos/aws.svg' as string | undefined },
@@ -107,6 +102,13 @@ export const events = [
 
 // Blog posts and personal projects. No `url` = shown as a "coming soon" card.
 export const blogs = [
+  {
+    kind: 'blog',
+    date: 'Nov 2026',
+    title: 'From 200 users to a bill of materials for a Private LLM server',
+    subtitle: 'How many users a GPU server really serves, and why memory alone gives the wrong answer.',
+    url: 'https://medium.com/@jha.aditya17/from-200-users-to-a-bill-of-materials-for-a-private-llm-server-6db1ae0d49e8',
+  },
   {
     kind: 'blog',
     date: 'Apr 2026',
@@ -127,12 +129,5 @@ export const blogs = [
     title: 'Understanding the Real AI Stack Beyond LLM APIs',
     subtitle: 'Calling an LLM API is not an architecture. Here is what actually is.',
     url: 'https://medium.com/towards-artificial-intelligence/understanding-the-real-ai-stack-beyond-llm-apis-d8f6fb77443c',
-  },
-  {
-    kind: 'blog',
-    date: '',
-    title: 'Scaling LLM serving for 200 users',
-    subtitle: 'A new post on what changes when an LLM platform grows to hundreds of users. In review.',
-    url: '',
   },
 ];

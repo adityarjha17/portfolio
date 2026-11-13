@@ -196,3 +196,88 @@ img {
     padding: 20px 18px;
   }
 }
+
+/* Footer easter egg: click "Brewed" */
+.brew-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+}
+.brew-sky[hidden] {
+  display: none;
+}
+.bubble {
+  position: absolute;
+  bottom: -70px;
+  pointer-events: none;
+  animation: rise linear forwards;
+  opacity: 0;
+}
+.bubble.ring {
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+@keyframes rise {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: 0.9; }
+  85% { opacity: 0.8; }
+  100% { transform: translate(var(--dx), -115vh); opacity: 0; }
+}
+.brew-pop {
+  position: relative;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 32px 40px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: popin 0.45s cubic-bezier(0.2, 1.3, 0.4, 1);
+  max-width: 90vw;
+}
+.brew-pop[hidden] {
+  display: none;
+}
+.brew-pop .cup {
+  font-size: 64px;
+  line-height: 1;
+}
+.brew-pop h3 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.brew-pop p {
+  color: var(--muted);
+  margin: 6px 0 18px;
+  font-size: 15px;
+}
+.brew-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.brew-pop #brew-x {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+@keyframes popin {
+  from { transform: scale(0.8) translateY(20px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bubble { display: none; }
+  .brew-pop { animation: none; }
+}
